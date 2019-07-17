@@ -1,0 +1,6 @@
+{"message":"Unauthorized request to path: /","level":"error"}
+{"message":"Description required.","level":"error"}
+{"message":"Description required.","level":"error"}
+{"message":"Description required.","level":"error"}
+{"message":"Boomark with id d1d9ab38-96d1-4ddd-82fd-438acd87bd01 created","level":"info"}
+{"message":"Could not find bookmark with id d1d9ab38-96d1-4ddd-82fd-438acd87bd01.","level":"error"}
