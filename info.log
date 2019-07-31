@@ -4,3 +4,19 @@
 {"message":"Description required.","level":"error"}
 {"message":"Boomark with id d1d9ab38-96d1-4ddd-82fd-438acd87bd01 created","level":"info"}
 {"message":"Could not find bookmark with id d1d9ab38-96d1-4ddd-82fd-438acd87bd01.","level":"error"}
+{"message":"Unauthorized request to path: /","level":"error"}
+{"message":"Unauthorized request to path: /","level":"error"}
+{"message":"Unauthorized request to path: /","level":"error"}
+{"message":"Unauthorized request to path: /","level":"error"}
+{"message":"Unauthorized request to path: /","level":"error"}
+{"message":"Boomark with id 159e4758-237c-4de5-95d6-6d9344546863 created","level":"info"}
+{"message":"Boomark with id 640c719f-55ca-4f73-b6d3-43aa2550663f created","level":"info"}
+{"message":"Boomark with id ef65174f-54ff-4758-91f3-dc112f3837c1 created","level":"info"}
+{"message":"Boomark with id 080dc665-0a2d-41f5-b29a-5f39b65e2685 created","level":"info"}
+{"message":"Boomark with id e91ee61e-6bdb-42ec-90e3-d5ae364227b6 created","level":"info"}
+{"message":"Boomark with id 5b5b855b-d6e1-4b7f-8753-87abe036f34e created","level":"info"}
+{"message":"Boomark with id 4a81fbfc-9d31-4646-8860-11eedef4ce60 created","level":"info"}
+{"message":"Unauthorized request to path: /","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"Bookmark with id 2 not found","level":"error"}
+{"message":"Bookmark with id 2 not found","level":"error"}

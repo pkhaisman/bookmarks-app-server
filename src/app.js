@@ -7,6 +7,7 @@ const { NODE_ENV } = require('./config');
 const logger = require('./logger');
 const bookmarks = require('./store');
 const uuid = require('uuid/v4');
+const BookmarksService = require('./bookmarks-service');
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.use(express.json());
 app.use(function validateBearerToken(req, res, next) {
     const apiToken = process.env.API_TOKEN;
     const authToken = req.get('Authorization');
-
+    console.log(apiToken, authToken);
     if (!authToken || authToken.split(' ')[1] !== apiToken) {
         logger.error(`Unauthorized request to path: ${req.path}`);
         return res.status(401).json({ error: 'Unauthorized request' });
@@ -35,22 +36,23 @@ app.get('/', (req, res) => {
     res.send('Hello, world!');
 });
 
-app.get('/bookmarks', (req, res) => {
-    res.json(bookmarks);
+app.get('/bookmarks', (req, res, next) => {
+    // res.json(bookmarks);
+    const knexInstance = req.app.get('db');
+    BookmarksService.getAllBookmarks(knexInstance)
+        .then(bookmarks => {
+            res.json(bookmarks)
+        })
+        .catch(next)
 });
 
-app.get('/bookmarks/:id', (req, res) => {
-    const { id } = req.params;
-    const bookmark = bookmarks.find(b => b.id == id);
-
-    if (!bookmark) {
-        logger.error(`Bookmark with id ${id} not found`);
-        return res
-            .status(404)
-            .send('Bookmark not found');
-    }
-
-    res.json(bookmark);
+app.get('/bookmarks/:id', (req, res, next) => {
+    const knexInstance = req.app.get('db');
+    BookmarksService.getById(knexInstance, req.params.id)
+        .then(bookmark => {
+            res.json(bookmark);
+        })
+        .catch(next);
 });
 
 app.post('/bookmarks', (req, res) => {
