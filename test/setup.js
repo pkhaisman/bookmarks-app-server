@@ -1,4 +1,3 @@
-// does this allow all test files to access process.env?
 require('dotenv').config();
 const { expect } = require('chai');
 const supertest = require('supertest');

@@ -5,9 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 const logger = require('./logger');
-const bookmarks = require('./store');
-const uuid = require('uuid/v4');
-const BookmarksService = require('./bookmarks-service');
+const bookmarksRouter = require('./bookmarks/bookmarks-router');
 
 const app = express();
 
@@ -32,96 +30,10 @@ app.use(function validateBearerToken(req, res, next) {
     next();
 });
 
+app.use('/bookmarks', bookmarksRouter);
+
 app.get('/', (req, res) => {
     res.send('Hello, world!');
-});
-
-app.get('/bookmarks', (req, res, next) => {
-    // res.json(bookmarks);
-    const knexInstance = req.app.get('db');
-    BookmarksService.getAllBookmarks(knexInstance)
-        .then(bookmarks => {
-            res.json(bookmarks)
-        })
-        .catch(next)
-});
-
-app.get('/bookmarks/:id', (req, res, next) => {
-    const knexInstance = req.app.get('db');
-    BookmarksService.getById(knexInstance, req.params.id)
-        .then(bookmark => {
-            res.json(bookmark);
-        })
-        .catch(next);
-});
-
-app.post('/bookmarks', (req, res) => {
-    const { description, rating, title, url } = req.body;
-
-    if (!description) {
-        logger.error('Description required.');
-        return res
-            .status(400)
-            .send('Invalid data');
-    }
-
-    if (!rating) {
-        logger.error('Rating required');
-        return res
-            .status(400)
-            .send('Invalid data');
-    }
-
-    if (!title) {
-        logger.error('Title required');
-        return res
-            .status(400)
-            .send('Invalid data');
-    }
-
-    if (!url) {
-        logger.error('Url required');
-        return res
-            .status(400)
-            .send('Invalid data');
-    }
-
-    const id = uuid();
-
-    const bookmark = {
-        description,
-        id,
-        rating,
-        title,
-        url
-    };
-
-    bookmarks.push(bookmark);
-
-    logger.info(`Boomark with id ${id} created`);
-
-    res
-        .status(201)
-        .location(`http://localhost:8000/bookmarks/${id}`)
-        .json(bookmark);
-});
-
-app.delete('/bookmarks/:id', (req, res) => {
-    const { id } = req.params;
-    const bookmarkIndex = bookmarks.findIndex(b => b.id == id);
-
-    if (bookmarkIndex === -1) {
-        logger.error(`Could not find bookmark with id ${id}.`);
-        return res
-            .status(400)
-            .send('Could not find bookmark')
-    }
-
-    bookmarks.splice(bookmarkIndex, 1);
-
-    res
-        .status(204)
-        .end();
 });
 
 app.use(function errorHandler(error, req, res, next) {

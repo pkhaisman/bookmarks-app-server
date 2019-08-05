@@ -20,3 +20,21 @@
 {"message":"Unauthorized request to path: /bookmarks","level":"error"}
 {"message":"Bookmark with id 2 not found","level":"error"}
 {"message":"Bookmark with id 2 not found","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"Boomark with id 24f3d70e-ddb8-45ea-9a92-3ee206b93fd3 created","level":"info"}
+{"message":"Boomark with id ba2d7029-e34f-4411-8fef-f74e6092f61f created","level":"info"}
+{"message":"Boomark with id 8b7e29b2-180e-4e4a-aca9-e15b4e32c8ab created","level":"info"}
+{"message":"Boomark with id 63cb2997-a933-47e5-83ad-d79ee6c63006 created","level":"info"}
+{"message":"Boomark with id a708acf1-e36b-48fd-a1e3-a1ea1165917c created","level":"info"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"Title required","level":"error"}
+{"message":"Title required","level":"error"}
+{"message":"Url required","level":"error"}
+{"message":"Title required","level":"error"}
+{"message":"Url required","level":"error"}
+{"message":"Rating required","level":"error"}
+{"message":"Unauthorized request to path: /articles/911","level":"error"}
+{"message":"Unauthorized request to path: /articles/911","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks/2","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"Unauthorized request to path: /bookmarks","level":"error"}
