@@ -38,3 +38,4 @@
 {"message":"Unauthorized request to path: /bookmarks/2","level":"error"}
 {"message":"Unauthorized request to path: /bookmarks","level":"error"}
 {"message":"Unauthorized request to path: /bookmarks","level":"error"}
+{"message":"Unauthorized request to path: /api/bookmarks/1234","level":"error"}

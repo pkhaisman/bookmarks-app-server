@@ -30,7 +30,7 @@ app.use(function validateBearerToken(req, res, next) {
     next();
 });
 
-app.use('/bookmarks', bookmarksRouter);
+app.use('/api/bookmarks', bookmarksRouter);
 
 app.get('/', (req, res) => {
     res.send('Hello, world!');
